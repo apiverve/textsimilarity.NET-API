@@ -1,21 +1,42 @@
 using System;
 using System.Collections.Generic;
-using System.Text;
+using Newtonsoft.Json;
 
 namespace APIVerve
 {
-    using Newtonsoft.Json;
+public class difference
+{
+    [JsonProperty("count")]
+    public int count { get; set; }
+
+    [JsonProperty("percentage")]
+    public double percentage { get; set; }
+
+}
+
+public class data
+{
+    [JsonProperty("simiarity")]
+    public double simiarity { get; set; }
+
+    [JsonProperty("similarityCaseSensitive")]
+    public double similarityCaseSensitive { get; set; }
+
+    [JsonProperty("difference")]
+    public difference difference { get; set; }
+
+}
 
 public class ResponseObj
 {
     [JsonProperty("status")]
-    public string Status { get; set; }
+    public string status { get; set; }
 
     [JsonProperty("error")]
-    public string Error { get; set; }
+    public object error { get; set; }
 
     [JsonProperty("data")]
-    public object Data { get; set; }
+    public data data { get; set; }
 
 }
 
