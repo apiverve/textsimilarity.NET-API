@@ -4,43 +4,46 @@ using Newtonsoft.Json;
 
 namespace APIVerve
 {
-public class difference
-{
-    [JsonProperty("count")]
-    public int count { get; set; }
+    /// <summary>
+    /// Difference data
+    /// </summary>
+    public class Difference
+    {
+        [JsonProperty("count")]
+        public int Count { get; set; }
 
-    [JsonProperty("percentage")]
-    public double percentage { get; set; }
+        [JsonProperty("percentage")]
+        public double Percentage { get; set; }
 
-}
+    }
+    /// <summary>
+    /// Data data
+    /// </summary>
+    public class Data
+    {
+        [JsonProperty("simiarity")]
+        public double Simiarity { get; set; }
 
-public class data
-{
-    [JsonProperty("simiarity")]
-    public double simiarity { get; set; }
+        [JsonProperty("similarityCaseSensitive")]
+        public double SimilarityCaseSensitive { get; set; }
 
-    [JsonProperty("similarityCaseSensitive")]
-    public double similarityCaseSensitive { get; set; }
+        [JsonProperty("difference")]
+        public Difference Difference { get; set; }
 
-    [JsonProperty("difference")]
-    public difference difference { get; set; }
+    }
+    /// <summary>
+    /// API Response object
+    /// </summary>
+    public class ResponseObj
+    {
+        [JsonProperty("status")]
+        public string Status { get; set; }
 
-}
+        [JsonProperty("error")]
+        public object Error { get; set; }
 
-public class ResponseObj
-{
-    [JsonProperty("status")]
-    public string status { get; set; }
+        [JsonProperty("data")]
+        public Data Data { get; set; }
 
-    [JsonProperty("error")]
-    public object error { get; set; }
-
-    [JsonProperty("data")]
-    public data data { get; set; }
-
-    [JsonProperty("code")]
-    public int code { get; set; }
-
-}
-
+    }
 }
